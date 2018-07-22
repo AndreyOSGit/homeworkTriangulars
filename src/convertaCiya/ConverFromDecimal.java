@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ConverToDecimal {
+public class ConverFromDecimal {
 
 	
 	// -------------------- convert from 2 to 10
@@ -12,7 +12,7 @@ public class ConverToDecimal {
 	
 	
 	@Test
-	public void converBinToDecimal_101_2_out_5() 
+	public void converFromDecimal_101_2_out_5() 
 	{
 		int osnova = 2;
 		String value = "101";  

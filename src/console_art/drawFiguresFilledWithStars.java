@@ -5,8 +5,8 @@ public class drawFiguresFilledWithStars
 	
 	public static void main(String args[])
 	{
-//		drawSquare1();
-//		drawTriangel2();
+		drawSquare1();
+		drawTriangel2();
 		drawTriangel3();
 		drawTriangel4();
 		drawTriangel5();
@@ -24,13 +24,13 @@ public class drawFiguresFilledWithStars
 	public static void drawSquare1()
 	{
 
-		int count = 15;
-		for (int i = 1; i <= count; i++) 
+		int size = 11;
+		for (int row = 1; row <= size; row++) 
 		{
-	        for (int k = 1; k <= count; k++)
+	        for (int col = 1; col <= size; col++)
 	        {
 	            // условие
-	            if ( (k == 1 || k <= count ) || (i == 1 || i <= count ) )
+	            if ( (col == 1 || col <= size ) || (row == 1 || row <= size ) )
 	            {
 	                System.out.print("*");
 	            } else
@@ -53,11 +53,11 @@ public class drawFiguresFilledWithStars
 	public static void drawTriangel2()
 	{
 		
-	int count = 15;
-		for (int i = 1; i <= count; i++) {
-	        for (int k = 1; k <= count + 1 - i ; k++) {
+	int size = 21;
+		for (int row = 1; row <= size; row++) {
+	        for (int col = 1; col <= size + 1 - row ; col++) {
 	            // условие
-	            if (k == 1 || i == 1 || k <= count - i + 1 ) {
+	            if (col == 1 || row == 1 || col <= size - row + 1 ) {
 	                System.out.print("*");
 	            } else {
 	                System.out.print(" ");
@@ -78,14 +78,13 @@ public class drawFiguresFilledWithStars
 	public static void drawTriangel3()
 	{
 		
-	int count = 7;
-		for (int i = 0; i < count; i++) {
-	        for (int k = 0; k < count ; k++) {
+	int size = 15;
+		for (int row = 1; row <= size; row++) {
+	        for (int col = 1; col <= size ; col++) {
 	            // условие
 	            if (
-	            		(k == 6) 
-	            		|| (i == 0) 
-	            		|| (k == i)
+	            		(col == size) 
+	            		|| (col >= row)
 	            	) {
 	                System.out.print("*");
 	            } else {
@@ -107,15 +106,15 @@ public class drawFiguresFilledWithStars
 	public static void drawTriangel4()
 	{
 		
-	int count = 7;
-		for (int i = 0; i < count; i++) {
-	        for (int k = 0; k < count/2+1 ; k++) {
+	int size = 15;
+		for (int row = 1; row <= size; row++) {
+	        for (int col = 1; col <= size/2+1 ; col++) {
 	            // условие
 	            if (
-	            	   (k == 0) 
-	            		|| (k <= i)
-	            		|| (k == count - i -1)
-	            	) {
+	            		(col <= row)
+	            		&& (col <= size - row +1)
+	            	)  
+	            {
 	                System.out.print("* ");
 	            } else {
 	                System.out.print("  ");
@@ -136,16 +135,15 @@ public class drawFiguresFilledWithStars
 	public static void drawTriangel5()
 	{
 		
-	int count = 7;
-		for (int i = 0; i < count; i++) 
+	int size = 11;
+		for (int row = 1; row <= size; row++) 
 		{
-	        for (int k = 0; k < count ; k++) 
+	        for (int col = 1; col <= size ; col++) 
 	        {
 	            // условие
 	            if (
-	            	   (i == 0) 
-	            		|| (k == i/2)
-	            		|| (k == count -1 - i/2)
+	            		(col >= row/2 +1 )
+	            		&& (col <= size - row/2  )
 	            	) 
 	            {
 	                System.out.print("*");
@@ -168,40 +166,28 @@ public class drawFiguresFilledWithStars
 	public static void sandTimer6()
 	{
 		
-	int size = 15;
+	int size = 9;
 		for (int row = 1; row <= size; row++) {
 			for (int col = 1; col <= size; col++) {
-				// условие
-				if ( (row <= size/2) )
-				{
-
-					if (row <= col && col <=size + 1 - row) 
-					{
-						System.out.print("*");
-					} else 
-					{
-						System.out.print(" ");
-					}
-					
-				}
-				
-			}
-		}
-	}
-			//	            ||	
-			//	            || (row >= size)
-			//	          ||  ( k <= i ) 
-			//	          ||  (k == count +1 - i )
-//
-//	                System.out.print("*");
-//	            } else 
-//	            {
-//	                System.out.print(" ");
-//	            }
-//	        }
+	            // условие
+	            if
+	         ( 
+	            	 (col >= row) && (col <= size - row +1) 
+	            ||   (col <= row) && (col >= size - row +1) 
+	            
+	         )
+	            {
+	                System.out.print("*");
+	            } else {
+	                System.out.print(" ");
+	            }
+	        }
 	        // ѕереход на следующую строку
-//	        System.out.println();
-//	    }
+	        System.out.println();
+	    }
+	} //end  sandTimer6
+
+
 	
 	
 //	*     *
@@ -214,17 +200,16 @@ public class drawFiguresFilledWithStars
 	public static void sandTimerNaBoku7()
 	{
 		
-	int count = 15;
-		for (int i = 0; i < count; i++) {
-	        for (int k = 0; k < count; k++) {
+	int size = 21;
+		for (int row = 1; row <= size; row++) {
+	        for (int col = 1; col <= size; col++) {
 	            // условие
 	            if
-	            ( 
-	            		(k == 0) 
-	            		||	(k == count -1) 
-	            		||  ( k == i ) 
-	            		||  (k == count - i -1 )
-	            )
+	         ( 
+	              ( (col >= row) && (row >= size - col +1) )// right part
+	          ||  ( (row >= col) && (row <= size - col +1) )  // left part
+	            
+	         )
 	            {
 	                System.out.print("*");
 	            } else {
